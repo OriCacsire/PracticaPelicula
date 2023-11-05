@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <%- include('./partials/head') %>
+
+  <body>
+    <%- include('./partials/header') %>
+
+  
+  <% if (locals.user!=undefined) { %>
+    <!--Acá mostramos en el locals del modelo de user el nombre  si el usuario es distinto a undefined-->
+    <h1 class="index-title">Bienvenidos <%= locals.user.name %></h1>
+    <!--¿De donde recibimos estos datos? De app.js de la linea -> res.locals.user=user.dataValues esto envia los datos apra que se pueda leer en las vistas, es decir permite manejar los datos dentro de lo que es el servidor y la otra parte me permite manejarlos en la vista. Por eso cuando estamos en index.ejs decimos locals.user   -->
+
+  <% } %>   
+    <section class="sec-index">
+        <img src="/images/portada.jpg" alt="protada">
+    </section>
+  </body>
+</html>
