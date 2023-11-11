@@ -3,7 +3,15 @@
   <%- include('./partials/head') %>
 
 <body>
-  <%- include('./partials/header') %>
+  <% if (locals.user != undefined) { %>
+    <!--aca hay un usuario en session-->
+    <%- include('./partials/headerLogueado') %>
+
+   <% } else { %>
+    <%- include('./partials/header') %>
+
+  <% } %>
+
 
 
   <main>

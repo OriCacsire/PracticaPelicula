@@ -33,6 +33,7 @@ router.post("/update/:id",movieController.update)
 /*eliminamos un registro */
 router.get("/deleteMovie/:id",movieController.borrar)
 
+/* GET form -> search page. */
 
 
 module.exports = router;

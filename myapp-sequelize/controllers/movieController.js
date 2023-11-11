@@ -116,7 +116,15 @@ const indexController = {
 
     /*Mostrar formularios de register*/
     showForm:(req,res)=>{
-      return res.render("registerMovie")
+
+      //Se pone un condicional porque no puede crear un post sin estar antes logeado
+      if (req.session.user !=undefined) {
+        return res.render("registerMovie")
+
+      } else {
+        return res.redirect("/users/login")
+
+      }
     },
     //   /*Registramos una peli --> CREATED */
     store:(req,res)=>{

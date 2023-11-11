@@ -3,8 +3,16 @@
   <%- include('./partials/head') %>
 
   <body>
+    <!--VALIDO SI EL USUARIO ESTA EN SESION -->
+    <% if (locals.user != undefined) { %>
+      <!--aca hay un usuario en session-->
+      <%- include('./partials/headerLogueado') %>
 
-    <%- include('./partials/header') %>
+     <% } else { %>
+      <%- include('./partials/header') %>
+
+    <% } %>
+
     
     <main class="container main-container">
       <div class="card mb-3 list-group-item" style="max-width: 540px;" >

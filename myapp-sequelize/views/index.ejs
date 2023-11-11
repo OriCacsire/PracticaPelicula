@@ -3,7 +3,18 @@
   <%- include('./partials/head') %>
 
   <body>
-    <%- include('./partials/header') %>
+    <!--Le preguntamos si esta en sección o no, para eso damos uso al snipet de IF. Dentro evaluamos si el usuario esta en sección o no, para eso se usa el objeto que trae la informacion del servidor a mis vistas dado que ahora estoy parado en mis vista, es locals. 
+    Si no se conoce el proyecto, vamos a donde se logue en el proyecto en este caso al controller der usuario, luego a login y en login post, ahi se encuentra la linea donde el usuario se crea en session(req.session.user) y se guarda en user. Por lo tanto se usa "user". 
+    Luego, me voy a la configuración de seccion en app.js. En este esta, app.use ls funcion que recibe parametros y dentro un condicional donde di el usuario ingresa por lo tanto si es diferente a undefined entondes se crea una propiedad res.locals.user, como se llama user se pone aca tmb-->
+    <% if (locals.user != undefined) { %>
+      <!--aca hay un usuario en session-->
+      <%- include('./partials/headerLogueado') %>
+
+     <% } else { %>
+      <%- include('./partials/header') %>
+
+    <% } %>
+
 
   
   <% if (locals.user!=undefined) { %>

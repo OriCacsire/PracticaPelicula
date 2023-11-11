@@ -2,20 +2,37 @@
 <html lang="en">
   <%- include('./partials/head') %>
   <body>
-    <%- include('./partials/header') %>
+    <% if (locals.user != undefined) { %>
+      <!--aca hay un usuario en session-->
+      <%- include('./partials/headerLogueado') %>
+
+     <% } else { %>
+      <%- include('./partials/header') %>
+
+    <% } %>
+
     <main class="container main-container">
 
       <!-- Formulario de Registro -->
 
       <form class="form" action="/users/login" method="POST" >
+        
+          <!--se pone un condicional porque no se quiere que siempre aparezca, sino queremos que aparezca cuando el usuario ingrese mal la contraseña o el mail-->
+          <% if (locals.errors != undefined) { %> 
+            <!--Tambien se puede poner como condicion lo siguiente : locals.errors -->
+            <p style="color:red;"> <%= locals.errors.message %></p>
+
+          <% } %>
+
+          
         <div class="title">Ingresar</div>
-     
+        <!--Sin el required-->
         <div class="input-container ic1">
-            <input id="email" class="input" type="email" name="email" placeholder="email" />
+            <input id="email" class="input" type="email" name="email" placeholder="email" value="" />
         </div>
 
         <div class="input-container ic1">
-            <input id="password" class="input" type="password" name="password" placeholder="Clave" />
+            <input id="password" class="input" type="password" name="password" placeholder="Clave" value="" />
         </div>
 
         <div class="input-container ic1">
